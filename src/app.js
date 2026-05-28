@@ -7,7 +7,14 @@ import { connectDB } from "./config/db.js";
 dotenv.config();
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      "https://project-zz9lk.vercel.app"
+    ],
+    credentials: true
+  })
+);
 app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ extended: true, limit: "10mb" }));
 
